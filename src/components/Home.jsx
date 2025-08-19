@@ -1,9 +1,7 @@
 import React, { useEffect } from 'react'
-import Navbar from './Navbar'
 import useAuth from '../context/useAuth'
 import haaland from '../assets/haaland.webp'
 import nunez from '../assets/nunez.webp'
-import Footer from './Footer'
 
 const Home = () => {
   
@@ -29,7 +27,6 @@ const Home = () => {
   
   return (
     <>
-    <Navbar />
     <div className='h-100% min-sm:h-dvh'  ref={screen}>
 
       <div className='text-3xl px-10 py-2'>Latest news</div>
@@ -56,7 +53,6 @@ const Home = () => {
         </div>
       </div>
     </div>
-    <Footer/>
     </>
   )
 }

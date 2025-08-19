@@ -2,7 +2,7 @@ import React from 'react'
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaGithub, FaYoutube } from "react-icons/fa";
 const Footer = () => {
   return (
-    <div className='h-30 bottom-0 bg-teal-700 text-white'>
+    <div className='h-30 bg-teal-700 text-white'>
       <div>
         <ol className='flex gap-10 justify-center pt-3'>
           <li className='footer-li'>Home</li>

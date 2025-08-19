@@ -16,12 +16,12 @@ const SideBar = () => {
       <hr className='mt-5 text-teal-600'/>
 
       <div className="sideLinks text-[18px] py-3">
-        <div className='sideLink'><NavLink to={'/'}>Home</NavLink></div>
-        <div className='sideLink'><NavLink to={'/matches'}>Today Matches</NavLink></div>
-        <div className='sideLink'><NavLink to={'/predictions'}>Betting Odds</NavLink></div>
-        <div className='sideLink'><NavLink to={'/contact'}>Contact</NavLink></div>
-        <div className='sideLink'><NavLink to={'/about'}>About </NavLink></div>
-        <div className='sideLink'><NavLink to={'/matches'}>Faqs</NavLink></div>
+        <div className='sideLink' onClick={()=> setOpenBar(false)}><NavLink to={'/'}>Home</NavLink></div>
+        <div className='sideLink' onClick={()=> setOpenBar(false)}><NavLink to={'/matches'}>Today Matches</NavLink></div>
+        <div className='sideLink' onClick={()=> setOpenBar(false)}><NavLink to={'/predictions'}>Betting Odds</NavLink></div>
+        <div className='sideLink' onClick={()=> setOpenBar(false)}><NavLink to={'/contact'}>Contact</NavLink></div>
+        <div className='sideLink' onClick={()=> setOpenBar(false)}><NavLink to={'/about'}>About </NavLink></div>
+        <div className='sideLink' onClick={()=> setOpenBar(false)}><NavLink to={'/matches'}>Faqs</NavLink></div>
       </div>
       
       
