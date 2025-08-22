@@ -10,7 +10,7 @@ import Matches from './components/Matches'
 import Odds from './components/Odds'
 import Contact from './components/Contact'
 import About from './components/About'
-import Faqs from './components/Faqs'
+import Faqs from './components/Admin'
 
 
 
@@ -47,7 +47,7 @@ const App = () => {
             <Route path='/predictions' element={<AuthRoute><Odds/></AuthRoute>}/>
             <Route path='/contact' element={<AuthRoute><Contact/></AuthRoute>}/>
             <Route path='/about' element={<AuthRoute><About/></AuthRoute>}/>
-            <Route path='/faqs' element={<AuthRoute><Faqs/></AuthRoute>}/>
+            <Route path='/admin' element={<AuthRoute><Faqs/></AuthRoute>}/>
 
 
             <Route path='/login' element={loggedIn ? <Home/> : <Login/>}/>

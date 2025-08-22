@@ -21,7 +21,7 @@ const SideBar = () => {
         <div className='sideLink' onClick={()=> setOpenBar(false)}><NavLink to={'/predictions'}>Betting Odds</NavLink></div>
         <div className='sideLink' onClick={()=> setOpenBar(false)}><NavLink to={'/contact'}>Contact</NavLink></div>
         <div className='sideLink' onClick={()=> setOpenBar(false)}><NavLink to={'/about'}>About </NavLink></div>
-        <div className='sideLink' onClick={()=> setOpenBar(false)}><NavLink to={'/matches'}>Faqs</NavLink></div>
+        <div className='sideLink text-blue-800' onClick={()=> setOpenBar(false)}><NavLink to={'/admin'}> Admin Upload</NavLink></div>
       </div>
       
       
