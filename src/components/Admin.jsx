@@ -1,4 +1,4 @@
-import React, { use, useState } from 'react'
+import React, { useState } from 'react'
 import { MdClose } from 'react-icons/md';
 import {api} from '../services/api'
 
@@ -20,12 +20,16 @@ const Admin = () => {
   async function handleSubmit(e){
     e.preventDefault();
     if(!title || !content ||!image){
-      document.getElementsByName("input").value = "Please enter text";
       return;
     }
+    const formData = new FormData();
+    formData.append('title', title);
+    formData.append('content', content);
+    formData.append('image', image);
+
     setLoading(true);
     try {
-      const response = await api.post(`${import.meta.env.VITE_API_URL}/addNews`);
+      const response = await api.post(`${import.meta.env.VITE_API_URL}/addNews`, formData);
       console.log(response.data);
     } catch (error) {
       console.error(error.message || "error submitting")
@@ -51,7 +55,7 @@ const Admin = () => {
         
 
         {!preview && <> <label htmlFor="fileUpload" className='cursor-pointer bg-gray-500 text-center py-2 m-1 text-white hover:bg-gray-400'>Upload Image</label>
-        <input type="file" id='fileUpload' accept='image/*' onChange={imageUpload} className='hidden' required /></>}
+        <input name='image' type="file" id='fileUpload' accept='image/*' onChange={imageUpload} className='hidden' required /></>}
 
        
         <button type='submit' className='bg-teal-800 text-[16px] w-fit py-2 px-3 text-white rounded m-2 mx-auto hover:bg-teal-500' onClick={handleSubmit}>{loading ? "Submitting...": "Submit News"}</button>
