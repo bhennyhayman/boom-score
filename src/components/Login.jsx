@@ -37,6 +37,7 @@ const Login = () => {
 
       const info = response.data.info;
       setUserInfo(info);
+      console.log(info);
       localStorage.setItem('userInfo', JSON.stringify(info));
       const {success} = response.data;
       if(!success) {

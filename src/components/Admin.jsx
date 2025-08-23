@@ -1,13 +1,20 @@
 import React, { useState } from 'react'
 import { MdClose } from 'react-icons/md';
 import {api} from '../services/api'
+import useAuth from '../context/useAuth';
+import { Navigate } from 'react-router-dom';
 
 const Admin = () => {
+
+  const {userInfo} = useAuth();
+  const role = userInfo.role;
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [image, setImage] = useState(null);
   const [preview, setPreview] = useState(null);
   const [loading, setLoading] = useState(false);
+
+  if(role === "user") return <Navigate to={'/'} replace/>
 
   function imageUpload(e){
     const file = e.target.files[0];

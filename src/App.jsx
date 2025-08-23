@@ -10,7 +10,7 @@ import Matches from './components/Matches'
 import Odds from './components/Odds'
 import Contact from './components/Contact'
 import About from './components/About'
-import Faqs from './components/Admin'
+import Admin from './components/Admin'
 
 
 
@@ -18,6 +18,7 @@ const App = () => {
 
     const [loading, setLoading] = useState(true)
     const {loggedIn,setLoggedIn} = useAuth();
+
 
     useEffect(()=>{
         
@@ -47,7 +48,7 @@ const App = () => {
             <Route path='/predictions' element={<AuthRoute><Odds/></AuthRoute>}/>
             <Route path='/contact' element={<AuthRoute><Contact/></AuthRoute>}/>
             <Route path='/about' element={<AuthRoute><About/></AuthRoute>}/>
-            <Route path='/admin' element={<AuthRoute><Faqs/></AuthRoute>}/>
+            <Route path='/admin' element={<AuthRoute><Admin/></AuthRoute>}/>
 
 
             <Route path='/login' element={loggedIn ? <Home/> : <Login/>}/>

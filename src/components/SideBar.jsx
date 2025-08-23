@@ -4,7 +4,9 @@ import { MdClose } from 'react-icons/md'
 import {NavLink} from 'react-router-dom'
 
 const SideBar = () => {
-  const {setOpenBar} = useAuth();
+  const {setOpenBar,userInfo} = useAuth();
+  const role = userInfo.role;
+  console.log(role);
 
   return (
     <div className='fixed top-0 h-screen bg-teal-500 w-70 text-white'>
@@ -21,7 +23,7 @@ const SideBar = () => {
         <div className='sideLink' onClick={()=> setOpenBar(false)}><NavLink to={'/predictions'}>Betting Odds</NavLink></div>
         <div className='sideLink' onClick={()=> setOpenBar(false)}><NavLink to={'/contact'}>Contact</NavLink></div>
         <div className='sideLink' onClick={()=> setOpenBar(false)}><NavLink to={'/about'}>About </NavLink></div>
-        <div className='sideLink text-blue-800' onClick={()=> setOpenBar(false)}><NavLink to={'/admin'}> Admin Upload</NavLink></div>
+        <div className={`sideLink text-blue-800 ${role === 'user' ? "hidden": ""}`} onClick={()=> setOpenBar(false)}><NavLink to={'/admin'}> Admin Upload</NavLink></div>
       </div>
       
       
