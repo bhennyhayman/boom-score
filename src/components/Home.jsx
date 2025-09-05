@@ -55,7 +55,7 @@ const Home = () => {
           <div className="card max-sm:w-80 md:w-120 flex flex-col my-2 p-2 max-sm:mx-auto md:mx-10">
           <div><img src={n.image.url} alt="img" className='p-2 rounded-[15px] sm:h-60 w-full'/></div>
           <div className='text-[16px] font-medium text-emerald-700 ml-2 p-1'>{n.title}</div>
-          <div className='ml-2 w-90 max-sm:text-[14px]'>{n.content.slice(0,250)+"..."}</div>
+          <div className='ml-2 w-auto max-sm:text-[14px]'>{n.content.slice(0,250)+"..."}</div>
           <div className='mx-2 mt-2 max-sm:text-[14px] text-orange-600 font-medium'>Source: {n.source} </div>
           <div className='flex items-center justify-between'>
             <div className='ml-2 my-2 text-indigo-700 font-semibold cursor-pointer max-sm:text-[16px]'> <a href={n.sourceUrl}>Read more</a></div>
