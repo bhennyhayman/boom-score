@@ -2,8 +2,8 @@ import React from 'react'
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaGithub, FaYoutube } from "react-icons/fa";
 const Footer = () => {
   return (
-    <div className='h-70 mt-35 bg-teal-700 text-white'>
-      <div className=''>
+    <div className='h-70 mt-20 bg-teal-700 text-white'>
+      <div className='m-2'>
         <ol className='flex gap-10 mx-auto pt-8 justify-self-center text-[18px] font-medium '>
           <li className='footer-li'>Home</li>
           <li className='footer-li'>Contact</li>
