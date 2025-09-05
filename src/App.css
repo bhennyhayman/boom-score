@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+button{
+  cursor: pointer;
+}
+
+button:active,button:focus{
+  color: cyan;
+}
+
+input:focus{
+  outline: none;
+}
+
+.btn:hover{
+  color: rgb(27, 27, 68);
+  background-color: white;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn:active, .btn:focus{
+  color: blue;
+  background-color: azure;
+}
+
+.card{
+  box-shadow: 0 5px 15px rgba(128, 128, 128, 0.349);
+  border-radius: 10px;
+}
+
+span{
+  cursor: pointer;
+}
+
+li{
+  cursor: pointer;
+}
+
+.footer-li:hover, .footer-li:focus{
+  background-color: white;
+  padding: 5px 9px;
+  border-radius: 5px;
+  color: black;
+  border: none;
+  transition: all 0.2s ease-in;
+}
+
+.sideLink{
+  @apply py-2 mx-5 my-2 hover:bg-white hover:text-teal-950 hover:px-3;
+}
+
