@@ -44,7 +44,7 @@ const Home = () => {
   
   return (
     <>
-    <div className='h-100% w-dw'  ref={screen}>
+    <div className='min-h-screen w-dvw'  ref={screen}>
 
       <div className='text-3xl px-10 py-2 md:text-center'>Latest news</div>
       
@@ -52,7 +52,7 @@ const Home = () => {
 
         {news.length > 0 ? <>
           {news.slice().reverse().map((n,i)=><React.Fragment key={i}>
-          <div className="card max-sm:w-100 md:w-120 flex flex-col my-2 p-2 max-sm:mx-10 md:mx-10">
+          <div className="card max-sm:w-100 md:w-120 flex flex-col my-2 p-2 max-sm:mx-auto md:mx-10">
           <div><img src={n.image.url} alt="img" className='p-2 rounded-[15px] sm:h-60 w-full'/></div>
           <div className='text-[16px] font-medium text-emerald-700 ml-2 p-1'>{n.title}</div>
           <div className='ml-2 w-90 wrap-normal max-sm:text-[14px]'>{n.content.slice(0,250)+"..."}</div>
