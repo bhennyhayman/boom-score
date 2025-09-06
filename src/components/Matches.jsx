@@ -1,5 +1,3 @@
-import fcblogo from '../assets/fcblogo.png'
-import chelsealogo from '../assets/chelsealogo.png'
 import Footer from "./Footer"
 import { todayDate } from '../utils/date'
 import { useState, useEffect } from 'react'
@@ -23,34 +21,43 @@ const Matches = () => {
   
   return (
     <>
-    <div className='w-dw'>
+    <div className='w-dw min-h-100'>
         <div className=' flex justify-between mx-5 max-sm:text[14px] mt-5 items-center'>
           <span className=' text-[18px] mx-5 font-bold'>Today Matches</span> 
           <span className=' text-[14px] bg-teal-600 px-2 py-1 text-white mr-7 rounded'>{todayDate()}</span>
         </div>
 
-        <div id="matchesContainer">
-          <div id='matchcard' className='flex flex-col mt-5 bg-gray-200 border-gray-500 rounded mx-10 shadow-[0px_1px_5px_gray]' >
+        <div id="matchesContainer" className='w-vw mx-10'>
+          
+          <div id='matchcard' className='flex mx-auto flex-col mt-5 bg-gray-200 border-gray-500 rounded shadow-[0px_1px_5px_gray]' >  
             
-            <div id='teams&score' className='flex mt-5 gap-2 justify-around max-sm:w-90 max-sm:mx-auto' >
-              <div className='flex flex-col'>
-                <div ><img className='h-15 w-15' src={fcblogo} alt="img" /></div>
-                <div className='text-2xl'>Barcelona</div>
-              </div>
-            <div className='flex flex-col text-center items-center align-middle'>
-              <span className='text-4xl'>0 : 0</span>
-              <span className=' mt-6'>Vs</span>
-            </div>
-            <div className='flex flex-col items-center'>
-              <div ><img className='h-15 w-15 object-cover' src={chelsealogo} alt="img" /></div>
-              <div className='text-2xl'>Chelsea</div>
-            </div>
-            </div>
-            
-           <div className='text-center flex justify-between max-sm:w-70 mx-auto py-2 text-[16px] min-sm:gap-30 text-teal-800 font-bold'> <span>El nombre stadio</span> <span>8:00pm</span></div>
+            {matches.length > 0 ? <>
+              {matches.map((match, index)=> <div key={index} className="bg-[#274d3d] text-white" >
+                <div className='flex gap-2 items-center p-1 m-2'>
+                  <div> {match.area.name} </div>
+                  <img src={match.area.flag} alt="flag" className='w-5 h-5' />
+                </div>
+                
+                <div>
+                  <div className='flex justify-between px-[10%] items-center text-2xl gap-5 '><img src={match.homeTeam.crest}  alt="crest" className='h-15 w-15' /> 
+                  <span className='text-4xl'> {match.score.fullTime.home || 0}</span>
+                  vs <span className='text-4xl' >{match.score.fullTime.away || 0}</span> 
+                  <img src={match.awayTeam.crest}  alt="crest" className='h-15 w-15' />
+                  </div>
+                  <div className='flex justify-between px-[10%] mx-auto'>
+                    <p>{match.homeTeam.shortName}</p>
+                    <p>{match.awayTeam.shortName}</p>
+                  </div>
+                  <div className="text-center mb-2">Time: {match.utcDate.slice(11,16)}</div>
+                </div>
+              </div>)}
+            </>: 
+            <div className=' mx-auto my-20'>
+              <div className='m-2'>No matches available</div>  
+              <div>Please check again later</div>
+            </div>}
+        
           </div>
-
-        <div className='text-center mt-20'>WORK IN PROGRESS...</div>
 
         </div>
     </div>
