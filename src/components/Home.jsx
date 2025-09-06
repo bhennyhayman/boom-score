@@ -44,7 +44,7 @@ const Home = () => {
   
   return (
     <>
-    <div className='min-h-screen w-dvw'  ref={screen}>
+    <div className='min-h-screen w-vw'  ref={screen}>
 
       <div className='text-3xl px-10 py-2 md:text-center'>Latest news</div>
       
@@ -63,9 +63,9 @@ const Home = () => {
           </div>
         </div>
           </React.Fragment>)}  
-        </> : <div className='mt-10 h-dvh'>
+        </> : <div className='h-80 mt-10 w-dvw'>
          
-            <div className="flex justify-center items-center">
+            <div className="flex justify-center mx-auto">
               <div className="w-12 h-12 mt-20 border-4 border-teal-500 border-t-transparent rounded-full animate-spin"></div>
             </div> 
        

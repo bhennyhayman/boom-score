@@ -11,9 +11,9 @@ const SideBar = () => {
   return (
     <motion.div 
       initial={{ width: 0 }} 
-      animate={{ width: openBar ? 300 : 0 }}
+      animate={{ width: openBar ? 250 : 0 }}
       transition={{ duration: 0.3, ease: 'easeInOut' }}
-    className='fixed top-0 h-screen bg-teal-500 w-70 text-white'>
+    className='fixed top-0 h-svh overflow-y-auto bg-teal-500 w-70 text-white'>
       
       <div className=' flex justify-between items-center-last mt-5'>
         <div className='ml-5 text-2xl '>BoomScore</div>
