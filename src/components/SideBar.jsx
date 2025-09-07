@@ -3,17 +3,31 @@ import useAuth from '../context/useAuth'
 import { MdClose } from 'react-icons/md'
 import {NavLink} from 'react-router-dom'
 import { motion } from 'framer-motion'
+import { useEffect } from 'react'
 
 const SideBar = () => {
   const {openBar,setOpenBar,userInfo} = useAuth();
   const role = userInfo.role;
+
+  useEffect(() => {
+    if (openBar) {
+      document.body.style.overflow = "hidden"
+    } else {
+      document.body.style.overflow = "auto"
+    }
+
+    // cleanup on unmount
+    return () => {
+      document.body.style.overflow = "auto"
+    }
+  }, [openBar])
 
   return (
     <motion.div 
       initial={{ width: 0 }} 
       animate={{ width: openBar ? 250 : 0 }}
       transition={{ duration: 0.3, ease: 'easeInOut' }}
-    className='fixed top-0 h-svh overflow-y-auto bg-teal-500 w-70 text-white'>
+    className='fixed top-0 h-screen bg-teal-500 w-70 text-white'>
       
       <div className=' flex justify-between items-center-last mt-5'>
         <div className='ml-5 text-2xl '>BoomScore</div>
