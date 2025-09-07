@@ -5,7 +5,6 @@ import AuthRoute from './components/AuthRoute'
 import Register from './components/Register'
 import useAuth from './context/useAuth'
 import { useEffect, useState } from 'react'
-import { api } from './services/api'
 import Matches from './components/Matches'
 import Predictions from './components/Predictions'
 import Contact from './components/Contact'
@@ -19,22 +18,27 @@ const App = () => {
     const [loading, setLoading] = useState(true)
     const {loggedIn,setLoggedIn} = useAuth();
 
-
     useEffect(()=>{
         
-        async function fetchToken(){
+         function getToken(){
             try {
-                const response = await api.get(`${import.meta.env.VITE_API_URL}/api/getToken`);
-                const {success} = response.data;
-                if(success){
-                    setLoggedIn(true);
+                const data = localStorage.getItem("userInfo");
+                if(data){
+                    const parsedata = JSON.parse(data);
+                    const {token} = parsedata;
+                    
+                    if(token){
+                        setLoggedIn(true);
+                    }
+                }else{
+                     console.log("sign in");
                 }
             } catch (error) {
                 console.error(error)
             }
             setLoading(false)
         } 
-        fetchToken();
+        getToken();
     },[])
 
 

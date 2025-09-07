@@ -22,7 +22,7 @@ const Login = () => {
       InputField.type = 'password';
     }
   }
-  
+
 
   async function loginUser(e){
     e.preventDefault();
@@ -33,23 +33,25 @@ const Login = () => {
     setErr("");
     try {
       const userData = {email,password};
-      const response = await logUserIn(userData)
+      const response = await logUserIn(userData);
 
       const info = response.data.info;
       setUserInfo(info);
       localStorage.setItem('userInfo', JSON.stringify(info));
       const {success} = response.data;
       if(!success) {
-        setErr("Problem signing in. Try again later")
+         setErr("Problem signing in. Try again later")
       }else{
-      setLoggedIn(true);
-      navigate('/')
-    }} catch (error) {
+        setLoggedIn(true);
+        navigate('/')}
+      } catch (error) {
       console.error(error)
       setErr("Network issues.") 
     }
     
   }
+
+
 
   return (
       <>

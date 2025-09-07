@@ -5,20 +5,35 @@ export const api = axios.create({
   withCredentials: true,
 })
 
+api.interceptors.request.use(
+  (config) => {
+    const info = localStorage.getItem("userInfo");
+    if(info){
+      const {token} = JSON.parse(info)
+      if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+    return config;
+    }
+    
+  },
+  (error) => Promise.reject(error)
+);
+
 export const creatingUser = async(userData) => {
 
   try {
       const response = await api.post(`/api/register`, userData);
-      return response;
+      return response.data;
   } catch (error) {
       console.error(error)
   }
 
 }
 
-export const logUserIn = async(data) => {
+export const logUserIn = async(userlogins) => {
   try {
-    const response = await api.post(`/api/login`, data);
+    const response = await api.post(`/api/login`, userlogins);
     return response;
   } catch (error) {
     console.error(error.message)
