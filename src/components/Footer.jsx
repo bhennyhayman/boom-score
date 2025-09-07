@@ -3,8 +3,8 @@ import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaGithub, FaYoutube } f
 const Footer = () => {
   return (
     <div className='h-70 w-vw mt-10 bg-teal-700 text-white'>
-      <div className='m-2'>
-        <ol className='flex gap-10 mx-auto pt-8 justify-self-center text-[15px] font-medium '>
+      <div className='max-sm:w-80 mx-auto'>
+        <ol className='flex gap-8 pt-8 justify-self-center text-[15px] font-medium '>
           <li className='footer-li'>Home</li>
           <li className='footer-li'>Contact</li>
           <li className='footer-li'>Subscribe</li>
