@@ -7,14 +7,27 @@ export const api = axios.create({
 
 api.interceptors.request.use(
   (config) => {
-    const info = localStorage.getItem("userInfo");
-    if (info) {
-      const { token } = JSON.parse(info);
-      if (token) {
-        config.headers.Authorization = `Bearer ${token}`;
-      }
+    if (
+      config.url.includes("/login") ||
+      config.url.includes("/register")
+    ) {
+      return config;
     }
-    return config; 
+
+    // Otherwise, attach token if available
+    try {
+      const info = localStorage.getItem("userInfo");
+      if (info) {
+        const { token } = JSON.parse(info);
+        if (token) {
+          config.headers.Authorization = `Bearer ${token}`;
+        }
+      }
+    } catch (err) {
+      console.error("Error parsing userInfo:", err);
+    }
+
+    return config;
   },
   (error) => Promise.reject(error)
 );
