@@ -3,24 +3,13 @@ import useAuth from '../context/useAuth'
 import { MdClose } from 'react-icons/md'
 import {NavLink} from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { useEffect } from 'react'
+import { useBodyScrollLock } from '../utils/useBodyScrollLock'
 
 const SideBar = () => {
   const {openBar,setOpenBar,userInfo} = useAuth();
   const role = userInfo.role;
 
-  useEffect(() => {
-    if (openBar) {
-      document.body.style.overflow = "hidden"
-    } else {
-      document.body.style.overflow = "auto"
-    }
-
-    // cleanup on unmount
-    return () => {
-      document.body.style.overflow = "auto"
-    }
-  }, [openBar])
+  useBodyScrollLock(openBar);
 
   return (
     <motion.div 
