@@ -18,9 +18,17 @@ const PredictionsUpload = () => {
   async function handleSubmit(e){
     e.preventDefault();
 
+    const info = localStorage.getItem("userInfo");
+    let token;
+
+    if (info) {
+      const parsed = JSON.parse(info);
+      token = parsed.token;
+    }
+
     if(formData.length < 1) return;
     setLoad(true);
-    const response = await api.post(`${import.meta.env.VITE_API_URL}/api/predictions`,formData);
+    const response = await api.post(`${import.meta.env.VITE_API_URL}/api/predictions`,formData, {headers: {Authorization: `Bearer ${token}`}});
     console.log(response.data);
     const inputs = document.querySelectorAll("input");
     inputs.forEach((i)=>{

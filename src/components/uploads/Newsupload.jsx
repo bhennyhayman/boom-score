@@ -35,9 +35,17 @@ const Newsupload = () => {
     formData.append('sourceUrl', sourceUrl)
     formData.append('image', image);
 
+    const info = localStorage.getItem("userInfo");
+    let token;
+
+    if (info) {
+      const parsed = JSON.parse(info);
+      token = parsed.token;
+    }
+
     setLoading(true);
     try {
-      const response = await api.post(`${import.meta.env.VITE_API_URL}/api/addNews`, formData);
+      const response = await api.post(`${import.meta.env.VITE_API_URL}/api/addNews`, formData, {headers: {Authorization: `Bearer ${token}`}});
       console.log(response.data);
       if(response.data) setSuccess("Submitted");
     } catch (error) {
