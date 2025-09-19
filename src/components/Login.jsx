@@ -11,6 +11,7 @@ const Login = () => {
   const [password, setPassword] = useState(null);
   const [err, setErr] = useState("");
   const {setLoggedIn, setUserInfo} = useAuth();
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const showPassword = () => {
@@ -31,6 +32,7 @@ const Login = () => {
       return
     }
     setErr("");
+    setLoading(true);
     try {
       const userData = {email,password};
       const response = await logUserIn(userData);
@@ -48,7 +50,7 @@ const Login = () => {
       console.error(error)
       setErr("Network issues.") 
     }
-    
+    setLoading(false);
   }
 
 
@@ -67,7 +69,7 @@ const Login = () => {
 
           {err && <div className='text-white bg-red-600 p-2 mx-auto w-fit mt-5 text-[14px]'>{err}</div>}
         
-          <button onClick={loginUser} className='btn my-4 text-white bg-cyan-900 w-fit mx-auto px-4 py-2' >Log In</button>
+          <button onClick={loginUser} className='btn my-4 text-white bg-cyan-900 w-fit mx-auto px-4 py-2' >{loading ? <div className='animate-pulse font-light'> signing in..</div>: "Sign in"}</button>
 
           <p className='text-white py-2 mb-5 cursor-pointer'><NavLink to={'/register'}>Don't have an account. Click to register</NavLink> </p>
         </form>
