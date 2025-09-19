@@ -32,6 +32,11 @@ const Matches = () => {
         <div id="matchesContainer" className='w-vw max-sm:w-80 max-sm:mx-auto mx-[10%]'>
           
           <div id='matchcard' className='flex mx-auto flex-col mt-5 border-gray-500 rounded shadow-[0px_1px_5px_gray]' >  
+
+            {matches.length < 0 && <div className=' mx-auto my-20'>
+              <div className='m-2'>No matches available</div>  
+              <div>Please check again later</div>
+            </div> }
             
             {matches.length > 0 ? <>
               {matches.map((match, index)=> 
@@ -60,8 +65,8 @@ const Matches = () => {
               </div>)}
             </>: 
             <div className=' mx-auto my-20'>
-              <div className='m-2'>No matches available</div>  
-              <div>Please check again later</div>
+              <div className='m-2 animate-ping'>Loading ...</div>  
+            
             </div>}
         
           </div>
