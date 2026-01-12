@@ -7,7 +7,9 @@ import { useBodyScrollLock } from '../utils/useBodyScrollLock'
 
 const SideBar = () => {
   const {openBar,setOpenBar,userInfo} = useAuth();
-  const role = userInfo.role;
+  const role = userInfo?.role;
+
+  console.log("role:", role);
 
   useBodyScrollLock(openBar);
 
@@ -30,7 +32,8 @@ const SideBar = () => {
         <div className='sideLink' onClick={()=> setOpenBar(false)}><NavLink to={'/predictions'}>Predictions</NavLink></div>
         <div className='sideLink' onClick={()=> setOpenBar(false)}><NavLink to={'/contact'}>Contact</NavLink></div>
         <div className='sideLink' onClick={()=> setOpenBar(false)}><NavLink to={'/about'}>About </NavLink></div>
-        <div className={`sideLink text-blue-800 ${role === 'user' ? "hidden": ""}`} onClick={()=> setOpenBar(false)}><NavLink to={'/admin'}> Admin Upload</NavLink></div>
+        
+        {role && <div className={`sideLink text-blue-800`} onClick={()=> setOpenBar(false)}><NavLink to={'/admin'}> Admin Upload</NavLink></div> }
       </div>
       
       

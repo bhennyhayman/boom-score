@@ -1,10 +1,11 @@
 import {NavLink} from "react-router-dom"
+import Navbar from "./Navbar";
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen bg-gray-50 py-12 px-6">
-      <div className="max-w-5xl mx-auto text-center">
-        {/* Heading */}
+    <div className="min-h-screen bg-gray-50 ">
+      <Navbar />
+      <div className="max-w-5xl mx-auto text-center py-12 px-6">
         <h1 className="text-4xl font-bold text-teal-700 mb-6">About Us</h1>
         <p className="text-lg text-gray-600 max-w-3xl mx-auto">
           Welcome to <span className="font-bold text-teal-700">BoomScore</span> - your ultimate hub for 
@@ -14,7 +15,7 @@ export default function AboutPage() {
         </p>
       </div>
 
-      {/* Features Section */}
+      
       <div className="mt-12 grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
         <div className="bg-white shadow-md rounded-2xl p-6 hover:shadow-lg transition">
           <h2 className="text-xl font-bold text-teal-700 mb-3">⚽ Predictions</h2>

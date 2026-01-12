@@ -3,6 +3,7 @@ import useAuth from '../context/useAuth'
 import Footer from "./Footer"
 import {api} from "../services/api"
 import {createDate} from '../utils/date'
+import Navbar from '../components/Navbar'
 
 const Home = () => {
   
@@ -45,32 +46,85 @@ const Home = () => {
   return (
     <>
     <div className='min-h-screen w-vw'  ref={screen}>
+      <Navbar/>
 
       <div className='text-3xl px-10 py-2 md:text-center'>Latest news</div>
       
-      <div id='contents' className='flex max-sm:flex-col pb-10'> 
+      <div
+  id="contents"
+  className="
+    grid
+    grid-cols-1
+    sm:grid-cols-2
+    lg:grid-cols-3
+    gap-6
+    px-4
+    pb-10
+  "
+>
 
-        {news.length > 0 ? <>
-          {news.slice().reverse().map((n,i)=><React.Fragment key={i}>
-          <div className="card max-sm:w-80 md:w-120 flex flex-col my-2 p-2 max-sm:mx-auto md:mx-10">
-          <div><img src={n.image.url} alt="img" className='p-2 rounded-[15px] sm:h-60 w-full'/></div>
-          <div className='text-[16px] font-medium text-emerald-700 ml-2 p-1'>{n.title}</div>
-          <div className='ml-2 w-auto max-sm:text-[14px]'>{n.content.slice(0,250)+"..."}</div>
-          <div className='mx-2 mt-2 max-sm:text-[14px] text-orange-600 font-medium'>Source: {n.source} </div>
-          <div className='flex items-center justify-between'>
-            <div className='ml-2 my-2 text-indigo-700 font-semibold cursor-pointer max-sm:text-[16px]'> <a href={n.sourceUrl}>Read more</a></div>
-            <p className='pr-5 max-sm:text-[14px] text-green-700 font-semibold'>{createDate(n.updatedAt)}</p>
-          </div>
+        {news.length > 0 ? (
+  news
+    .slice()
+    .reverse()
+    .map((n, i) => (
+      <div
+        key={i}
+        className="
+          card
+          w-full
+          max-w-sm
+          mx-auto
+          flex
+          flex-col
+          bg-white
+          rounded-xl
+          shadow
+          p-3
+        "
+      >
+        <img
+          src={n.image.url}
+          alt="img"
+          className="rounded-lg h-56 w-full object-cover"
+        />
+
+        <h3 className="text-[16px] font-medium text-emerald-700 mt-2">
+          {n.title}
+        </h3>
+
+        <p className="text-[14px] mt-1 text-gray-700">
+          {n.content.slice(0, 250)}...
+        </p>
+
+        <p className="text-orange-600 text-[14px] mt-2 font-medium">
+          Source: {n.source}
+        </p>
+
+        <div className="flex items-center justify-between mt-3 text-[14px]">
+          <a
+            href={n.sourceUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-indigo-700 font-semibold hover:underline"
+          >
+            Read more
+          </a>
+
+          <span className="text-green-700 font-semibold">
+            {createDate(n.updatedAt)}
+          </span>
         </div>
-          </React.Fragment>)}  
-        </> : <div className='h-80 mt-10 w-dvw'>
+      </div>
+    ))
+) : ( <div className='h-80 mt-10 w-dvw'>
          
             <div className="flex justify-center mx-auto">
               <div className="w-12 h-12 mt-20 border-4 border-teal-500 border-t-transparent rounded-full animate-spin"></div>
             </div> 
        
           
-          </div>}
+          </div>)}
         
 
          

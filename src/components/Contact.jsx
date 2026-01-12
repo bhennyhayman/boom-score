@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Mail, Phone, MapPin, Facebook, Twitter, Instagram, Youtube } from "lucide-react";
+import Navbar from "./Navbar";
 
 export default function Contact() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
@@ -15,6 +16,9 @@ export default function Contact() {
   };
 
   return (
+    <div>
+      <Navbar />
+    
     <div className="min-h-screen w-dv bg-green-50 flex items-center justify-center p-6">
       <div className="max-w-4xl w-full bg-white shadow-2xl rounded-2xl grid grid-cols-1 md:grid-cols-2 overflow-hidden">
         
@@ -38,7 +42,6 @@ export default function Contact() {
           </div>
         </div>
 
-        {/* Right Side - Form */}
         <div className="p-8">
           <h2 className="text-2xl font-bold text-teal-900 mb-6">Send Us a Message</h2>
           <form onSubmit={handleSubmit} className="space-y-4">
@@ -79,6 +82,7 @@ export default function Contact() {
         </div>
 
       </div>
+    </div>
     </div>
   );
 }

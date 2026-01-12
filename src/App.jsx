@@ -13,6 +13,7 @@ import Admin from './components/Admin'
 
 
 
+
 const App = () => {
 
     const [loading, setLoading] = useState(true)
@@ -30,8 +31,6 @@ const App = () => {
                     if(token){
                         setLoggedIn(true);
                     }
-                }else{
-                     console.log("sign in");
                 }
             } catch (error) {
                 console.error(error)
@@ -47,11 +46,11 @@ const App = () => {
         <>
         <Routes>
           
-            <Route path='/' element={<AuthRoute><Home/></AuthRoute>}/>
-            <Route path='/matches' element={<AuthRoute><Matches/></AuthRoute>}/>
+            <Route path='/' element={<Home/>}/>
+            <Route path='/matches' element={<Matches/>}/>
             <Route path='/predictions' element={<AuthRoute><Predictions/></AuthRoute>}/>
-            <Route path='/contact' element={<AuthRoute><Contact/></AuthRoute>}/>
-            <Route path='/about' element={<AuthRoute><About/></AuthRoute>}/>
+            <Route path='/contact' element={<Contact/>}/>
+            <Route path='/about' element={<About/>}/>
             <Route path='/admin' element={<AuthRoute><Admin/></AuthRoute>}/>
 
 
