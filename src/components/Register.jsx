@@ -21,7 +21,7 @@ const Register = () => {
     const userData = {username,email,password};
 
     const response = await creatingUser(userData);
-    console.log(response);
+
 
     if(response.data.success){  
       return setMsg("Account created successfully")

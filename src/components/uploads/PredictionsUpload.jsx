@@ -29,7 +29,7 @@ const PredictionsUpload = () => {
     if(formData.length < 1) return;
     setLoad(true);
     const response = await api.post(`${import.meta.env.VITE_API_URL}/api/predictions`,formData, {headers: {Authorization: `Bearer ${token}`}});
-    console.log(response.data);
+   
     const inputs = document.querySelectorAll("input");
     inputs.forEach((i)=>{
       i.value = "";

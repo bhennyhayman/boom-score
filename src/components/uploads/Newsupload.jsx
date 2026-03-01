@@ -46,7 +46,7 @@ const Newsupload = () => {
     setLoading(true);
     try {
       const response = await api.post(`${import.meta.env.VITE_API_URL}/api/addNews`, formData, {headers: {Authorization: `Bearer ${token}`}});
-      console.log(response.data);
+
       if(response.data) setSuccess("Submitted");
     } catch (error) {
       console.error(error.message || "error submitting")
