@@ -22,8 +22,8 @@ export default function Predictions() {
   return (
     <div className="bg-gray-50 w-dw">
   
-      <section id="prediction" className="max-w-5xl mx-5 my-5">
-        <h1 className="text-2xl font-bold text-teal-700 mb-8">⚽ Football Predictions</h1>
+      <section id="prediction" className="mx-5 my-5">
+        <h1 className="text-2xl text-center font-bold text-teal-700 mb-8">⚽ Football Predictions</h1>
 
         {predictions.length > 0 && <>
           {predictions.map((match, index)=> <React.Fragment key={index}>
@@ -49,7 +49,7 @@ export default function Predictions() {
       </section>
 
       
-      <section className="max-w-3xl mx-2 mt-12">
+      <section className=" mx-2 mt-12">
         <div className="bg-white rounded-2xl shadow-lg p-6 text-center">
           <h2 className="text-2xl font-extrabold text-red-500 mb-4">SportyBet Codes</h2>
           <div className="space-y-3 text-lg">
