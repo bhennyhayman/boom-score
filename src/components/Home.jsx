@@ -30,7 +30,6 @@ const Home = () => {
     if(openBar && screen.current){
       const handleClick = () => {
         setOpenBar(false)
-        console.log("clicked");
       }
       const viewscreen = screen.current;
       viewscreen.addEventListener('click', handleClick);

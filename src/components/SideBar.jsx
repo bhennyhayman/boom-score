@@ -9,8 +9,6 @@ const SideBar = () => {
   const {openBar,setOpenBar,userInfo} = useAuth();
   const role = userInfo?.role;
 
-  console.log("role:", role);
-
   useBodyScrollLock(openBar);
 
   return (
